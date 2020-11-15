@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/shiro
+    username: root
+    password: root
+  jpa:
+    database: mysql
+mybatis:
+  mapperLocations: classpath:mappers/*.xml
+  type-aliases-package: com.example.zhangmlea.login.entity
