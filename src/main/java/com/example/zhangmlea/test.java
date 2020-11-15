@@ -17,6 +17,7 @@ public class test {
 
     public int[][] threeOrders (TreeNode root) {
         // write code here
+	// test git commit and push
         int[][] a = new int[3][];
 
         List<Integer> preOrderList = new ArrayList<>();
