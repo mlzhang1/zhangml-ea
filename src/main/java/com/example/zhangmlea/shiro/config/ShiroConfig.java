@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.zhangmlea.shiro.config;
 
 import com.example.zhangmlea.shiro.realm.UserRealm;
 import org.apache.shiro.mgt.SecurityManager;
@@ -9,9 +9,6 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 public class ShiroConfig {
@@ -44,21 +41,6 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        Map<String, String> map = new HashMap<>();
-        // 首页配置放行
-        map.put("/", "anon");
-        // 登录页面和登录请求路径需要放行
-        map.put("/login", "anon");
-        map.put("/do_login", "anon");
-        // 其他未配置的所有路径都需要通过验证，否则跳转到登录页
-        map.put("/**", "authc");
-        //登录
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        //首页
-        shiroFilterFactoryBean.setSuccessUrl("/index");
-        //错误页面，认证不通过跳转
-        shiroFilterFactoryBean.setUnauthorizedUrl("/error");
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         return shiroFilterFactoryBean;
     }
 

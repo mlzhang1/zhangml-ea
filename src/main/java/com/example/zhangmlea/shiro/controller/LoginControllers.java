@@ -10,7 +10,7 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -19,7 +19,7 @@ public class LoginControllers {
 
     private Logger log = LoggerFactory.getLogger(LoginControllers.class);
 
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public String login(UserDAO user){
         if (StringUtils.isEmpty(user.getUserName()) || StringUtils.isEmpty(user.getPassword())) {
             return "请输入用户名和密码！";

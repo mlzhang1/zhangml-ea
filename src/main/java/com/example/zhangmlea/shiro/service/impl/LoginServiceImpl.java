@@ -24,7 +24,6 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public UserDAO getMapByName(String userName) {
-        logger.info("---------------呵呵------------------");
         return loginMapper.findAccountMapByName(userName);
     }
 
